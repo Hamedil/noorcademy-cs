@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTraineesTable extends Migration
+class CreateTrainersForeignKey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateTraineesTable extends Migration
      */
     public function up()
     {
-        Schema::create('trainees', function(Blueprint $table) {
-
-            $table->integer('id', true);
-
-            $table->string('name');
-            $table->string('email');
-
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('trainers', function(Blueprint $table)
+        {
+            $table->foreign('course_type_id', 'foreign_courseTypeId_on_CourseTypes')
+                ->references('id')
+                ->on('course_types')
+                ->onUpdate('CASCADE')
+                ->onDelete('RESTRICT');
         });
+
     }
 
     /**
@@ -32,6 +31,6 @@ class CreateTraineesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('trainees');
+        //
     }
 }
