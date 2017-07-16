@@ -34,13 +34,30 @@ class NoorAcademyCSController extends Controller
      */
     public function postTrainee(Request $request){
     	// Validation
-        
-    	// Store Data
-    	// $trainee = new Trainee();
-    	// $trainee->email = $request['email'];
-    	// $trainee->save();
-         
-    	// Return Success/Fail Message
+        // $rules = [
+        //     'email' => 'required|email'
+        // ];
+        // if(!$this->validate($request, $rules)){
+        //     $email_trainee = $request['email'];
+            // Store Data 
+            // try{
+                // $trainee = new Trainee();
+                // $trainee->email = $email_trainee;
+                // $trainee->save();
+            // } catch(\Illuminate\Database\QueryException $e){
+                // $errorCode = $e->errorInfo[1];
+                // Duplicate Email (1062) in The Database
+                // if($errorCode == 1062){ 
+            //         return redirect()
+            //                 ->route('')
+            //                 ->with('email_duplicate', "");
+            //     }
+            // }
+            // Return Success/Fail Message
+            // return redirect()
+            //        ->route()
+            //        ->with('message', 'success'); 
+        // }
     }
 
     /**
@@ -52,16 +69,40 @@ class NoorAcademyCSController extends Controller
      */
     public function postTrainer(Request $request, $id){
     	// Validation
-         
-    	// Store Data
-    	// $trainer = new Trainer();
-    	// $trainer->name = $request['name'];
-    	// $trainer->email = $request['email'];
-    	// $trainer->course_type_id = CourseType::find($id)->id;
-    	// $trainer->course_field = $request['course_field']; // not added to the database
-    	// $trainer->course_description = $request['course_description']; // not added to the database
-    	// $trainer->save();
-         
-    	// Return Success/Fail Message
+        // $rules = [
+        //     'name' => 'required',
+        //     'email' => 'required|email',
+        //     'course_type_id' => 'required',
+        //     'course_field' => 'required',
+        //     'course_description' => 'required'
+        // ];
+        // if(!$this->validate($request, $rules)){
+        //     $name_trainer = $request['name'];
+        //     $email_trainer = $request['email'];
+        //     $course_type_id = CourseType::find($id)->id;
+        //     $course_field = $request['course_field'];
+        //     $course_description = $request['course_description'];
+        	// Store Data
+            // try {
+                // $trainer = new Trainer();
+            	// $trainer->name = $name_trainer;
+            	// $trainer->email = $email_trainer;
+            	// $trainer->course_type_id = $course_type_id;
+            	// $trainer->course_field = $course_field; // not added to the database
+            	// $trainer->course_description = $course_description; // not added to the database
+            	// $trainer->save();  
+        //     } catch (\Illuminate\Database\QueryException $e) {
+        //         $errorCode = $e->errorInfo[1];
+        //         if($errorCode == 1062){
+        //             return redirect()
+        //                    ->route('')
+        //                    ->with('email_duplicate', "");
+        //         }
+        //     }
+        	// Return Success/Fail Message
+            // return redirect()
+            //        ->route('')
+            //        ->with('message', ""); 
+        // }
     }
 }
